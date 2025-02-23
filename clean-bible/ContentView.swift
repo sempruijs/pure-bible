@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showVerseNumbers = false
+    
     var body: some View {
-        BibleView()
+        BibleView(showVerseNumbers: showVerseNumbers)
+            .toolbar {
+                ToolbarItemGroup {
+                    Toggle(isOn: $showVerseNumbers) {
+                        Image(systemName: "italic")
+                    }
+                    .keyboardShortcut("s")
+                }
+            }
     }
 }
 

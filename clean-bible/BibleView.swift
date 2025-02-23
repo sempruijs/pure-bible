@@ -9,13 +9,14 @@ import SwiftUI
 
 struct BibleView: View {
     let bible: Bible? = loadBible()
+    let showVerseNumbers: Bool
     
     var body: some View {
         NavigationView {
             List {
                 if let books = bible?.books {
                     ForEach(books, id: \.name) { book in
-                        NavigationLink(destination: BookView(book: book)) {
+                        NavigationLink(destination: BookView(book: book, showVerseNumbers: showVerseNumbers)) {
                             Text(book.name)
                         }
                     }
@@ -29,6 +30,6 @@ struct BibleView: View {
     }
 }
 
-#Preview {
-    BibleView()
-}
+//#Preview {
+//    BibleView(true)
+//}

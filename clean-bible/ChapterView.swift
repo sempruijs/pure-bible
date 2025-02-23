@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ChapterView: View {
     let chapter: Chapter
+    let showVerseNumbers: Bool
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 ForEach(chapter.verses, id: \.verse) { verse in
-                    Text("\(verse.verse). \(verse.text)")
+                    Text(showVerse(verse: verse, withNumber: showVerseNumbers))
                         .padding(.bottom, 2)
                         .textSelection(.enabled)
                 }
@@ -24,6 +25,13 @@ struct ChapterView: View {
         .navigationTitle("Chapter \(chapter.chapter)")
         .accessibilityLabel("chapter content")
     }
+}
+
+func showVerse(verse: Verse, withNumber: Bool) -> String {
+    if withNumber {
+        return "\(verse.verse). \(verse.text)"
+    }
+    return "\(verse.text)"
 }
 
 
