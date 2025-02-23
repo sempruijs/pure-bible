@@ -42,7 +42,7 @@ struct BookView: View {
         NavigationView {
             List(book.chapters, id: \.chapter) { chapter in
                 NavigationLink(destination: ChapterView(chapter: chapter)) {
-                    Text("Chapter \(chapter.chapter)")
+                    Text("\(chapter.chapter)")
                 }
             }
             .navigationTitle(book.name)
