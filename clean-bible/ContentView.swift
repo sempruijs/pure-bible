@@ -13,28 +13,6 @@ struct ContentView: View {
     }
 }
 
-struct BibleView: View {
-    let bible: Bible? = loadBible()
-    
-    var body: some View {
-        NavigationView {
-            List {
-                if let books = bible?.books {
-                    ForEach(books, id: \.name) { book in
-                        NavigationLink(destination: BookView(book: book)) {
-                            Text(book.name)
-                        }
-                    }
-                } else {
-                    Text("Loading Bible...")
-                }
-            }
-            .navigationTitle("Bible")
-            .accessibilityLabel("books")
-        }
-    }
-}
-
 #Preview {
     ContentView()
 }
