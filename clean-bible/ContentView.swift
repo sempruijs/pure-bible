@@ -60,6 +60,7 @@ struct ChapterView: View {
                 ForEach(chapter.verses, id: \.verse) { verse in
                     Text("\(verse.verse). \(verse.text)")
                         .padding(.bottom, 2)
+                        .textSelection(.enabled)
                 }
             }
             .padding()
