@@ -15,8 +15,9 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItemGroup {
                     Toggle(isOn: $showVerseNumbers) {
-                        Image(systemName: "italic")
+                        Image(systemName: "numbers")
                     }
+                    .accessibilityLabel("verse numbers")
                     .keyboardShortcut("s")
                 }
             }
