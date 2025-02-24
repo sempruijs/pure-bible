@@ -9,12 +9,12 @@ import SwiftUI
 
 struct BookView: View {
     let book: Book
-    let showVerseNumbers: Bool
+    let settings: Settings
     
     var body: some View {
         NavigationView {
             List(book.chapters, id: \.chapter) { chapter in
-                NavigationLink(destination: ChapterView(chapter: chapter, showVerseNumbers: showVerseNumbers)) {
+                NavigationLink(destination: ChapterView(chapter: chapter, settings: settings)) {
                     Text("\(chapter.chapter)")
                 }
             }

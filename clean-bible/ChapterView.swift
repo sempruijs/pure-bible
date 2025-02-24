@@ -9,14 +9,15 @@ import SwiftUI
 
 struct ChapterView: View {
     let chapter: Chapter
-    let showVerseNumbers: Bool
+    let settings: Settings
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 ForEach(chapter.verses, id: \.verse) { verse in
-                    Text(showVerse(verse: verse, withNumber: showVerseNumbers))
+                    Text(showVerse(verse: verse, withNumber: settings.verseNumbers))
                         .padding(.bottom, 2)
+                        .font(.system(size: settings.fontSize))
                         .textSelection(.enabled)
                 }
             }
