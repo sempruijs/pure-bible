@@ -28,7 +28,7 @@ struct ChapterView: View {
             .padding()
         }
         .navigationTitle("Chapter \(chapter.chapter)")
-        .accessibilityLabel("chapter content")
+        .accessibilityLabel("\(chapter.name)")
     }
 }
 
