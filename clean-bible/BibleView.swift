@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct BibleView: View {
-    let bible: Bible? = loadBible()
+    let bible: Bible
     let settings: Settings
     
     var body: some View {
         NavigationView {
             List {
-                if let books = bible?.books {
-                    ForEach(books, id: \.name) { book in
-                        NavigationLink(destination: BookView(book: book, settings: settings)) {
-                            Text(book.name)
-                        }
+                ForEach(bible.books, id: \.name) { book in
+                    NavigationLink(destination: BookView(book: book, settings: settings)) {
+                        Text(book.name)
                     }
-                } else {
-                    Text("Loading Bible...")
                 }
             }
             .navigationTitle("Bible")
