@@ -17,7 +17,11 @@ struct ChapterView: View {
                 ForEach(chapter.verses, id: \.verse) { verse in
                     Text(showVerse(verse: verse, withNumber: settings.verseNumbers))
                         .padding(.bottom, 2)
-                        .font(.system(size: settings.fontSize))
+                        .font(
+                            settings.fontName == "System"
+                            ? .system(size: settings.fontSize)  // Use system font
+                            : .custom(settings.fontName, size: settings.fontSize) // Use selected font
+                        )
                         .textSelection(.enabled)
                 }
             }

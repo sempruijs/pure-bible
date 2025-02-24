@@ -48,4 +48,5 @@ func loadBible() -> Bible? {
 struct Settings {
     var verseNumbers: Bool
     var fontSize: CGFloat
+    var fontName: String
 }
