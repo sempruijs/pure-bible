@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A22829772D6C839B00E55140 /* QuickSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22829762D6C839B00E55140 /* QuickSwitcherView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A2B2DB2E2D6A53E800A6C06D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A22829762D6C839B00E55140 /* QuickSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSwitcherView.swift; sourceTree = "<group>"; };
 		A2B2DB1C2D6A53E700A6C06D /* clean-bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "clean-bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B2DB2D2D6A53E800A6C06D /* clean-bibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "clean-bibleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B2DB372D6A53E800A6C06D /* clean-bibleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "clean-bibleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +80,7 @@
 		A2B2DB132D6A53E700A6C06D = {
 			isa = PBXGroup;
 			children = (
+				A22829762D6C839B00E55140 /* QuickSwitcherView.swift */,
 				A2B2DB1E2D6A53E700A6C06D /* clean-bible */,
 				A2B2DB302D6A53E800A6C06D /* clean-bibleTests */,
 				A2B2DB3A2D6A53E800A6C06D /* clean-bibleUITests */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22829772D6C839B00E55140 /* QuickSwitcherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
