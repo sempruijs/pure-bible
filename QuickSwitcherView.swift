@@ -39,6 +39,7 @@ struct QuickSwitcherView: View {
                         .cornerRadius(5)
                 }
             }
+            .accessibilityLabel("search results")
             .onMoveCommand(perform: moveSelection)
         }
         .padding()
