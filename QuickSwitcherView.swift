@@ -12,42 +12,57 @@ struct QuickSwitcherView: View {
     @Binding var showSwitchView: Bool
     @Binding var searchText: String
     @FocusState private var isTextFieldFocused: Bool
-    
+    @State private var selectedIndex: Int = 0 // Track selected result index
+
+    var filteredChapters: [Chapter] {
+        bible.books.flatMap { $0.chapters }.filter {
+            $0.name.lowercased().contains(searchText.lowercased())
+        }
+    }
+
     var body: some View {
         VStack {
-                    TextField("Search Bible Book", text: $searchText)
-                        .padding()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(maxWidth: .infinity)
-                        .focused($isTextFieldFocused) // Bind to focus state
-                        .onAppear {
-                            isTextFieldFocused = true  // Automatically focus when view appears
-                        }
-                    
-            List(bible.books.flatMap { $0.chapters }, id: \.name) { chapter in
-                        Button(action: {
-                            self.showSwitchView = false
-                        }) {
-                            Text(chapter.name)
-                                .padding()
-                        }
-                    }
-                }
+            TextField("Search Bible Book", text: $searchText)
                 .padding()
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(radius: 20)
-                .frame(maxWidth: 400, maxHeight: 400)
-                .transition(.move(edge: .top))
-                .onAppear {
-                    isTextFieldFocused = true
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(maxWidth: .infinity)
+                .focused($isTextFieldFocused)
+                .onAppear { isTextFieldFocused = true }
+
+            List(filteredChapters.indices, id: \.self, selection: $selectedIndex) { index in
+                Button(action: {
+                    openChapter(filteredChapters[index])
+                }) {
+                    Text(filteredChapters[index].name)
+                        .padding()
+                        .background(selectedIndex == index ? Color.gray.opacity(0.2) : Color.clear)
+                        .cornerRadius(5)
                 }
-                .onDisappear {
-                    isTextFieldFocused = false
-                }
-                .onExitCommand {  // Handle Escape key press
-                    showSwitchView = false
-                }
+            }
+            .onMoveCommand(perform: moveSelection)
+        }
+        .padding()
+        .cornerRadius(10)
+        .shadow(radius: 20)
+        .frame(maxWidth: 400, maxHeight: 400)
+        .transition(.move(edge: .top))
+        .onExitCommand { showSwitchView = false } // Hide on Escape
+    }
+
+    private func moveSelection(_ direction: MoveCommandDirection) {
+        switch direction {
+        case .down:
+            if selectedIndex < filteredChapters.count - 1 { selectedIndex += 1 }
+        case .up:
+            if selectedIndex > 0 { selectedIndex -= 1 }
+        default:
+            break
+        }
+    }
+
+    private func openChapter(_ chapter: Chapter) {
+        showSwitchView = false
+        // Navigate to the selected chapter (implement your navigation logic here)
     }
 }
 
