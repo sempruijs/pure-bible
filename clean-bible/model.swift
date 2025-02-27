@@ -29,22 +29,6 @@ struct Verse: Codable {
     let text: String
 }
 
-func loadBible() -> Bible? {
-    guard let url = Bundle.main.url(forResource: "canisius1939", withExtension: "json") else {
-        print("Bible JSON file not found")
-        return nil
-    }
-    
-    do {
-        let data = try Data(contentsOf: url)
-        let decoder = JSONDecoder()
-        return try decoder.decode(Bible.self, from: data)
-    } catch {
-        print("Error decoding Bible JSON: \(error)")
-        return nil
-    }
-}
-
 struct Settings {
     var verseNumbers: Bool
     var fontSize: CGFloat

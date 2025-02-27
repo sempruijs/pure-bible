@@ -73,6 +73,22 @@ struct ContentView: View {
     }
 }
 
+func loadBible() -> Bible? {
+    guard let url = Bundle.main.url(forResource: "svv", withExtension: "json") else {
+        print("Bible JSON file not found")
+        return nil
+    }
+    
+    do {
+        let data = try Data(contentsOf: url)
+        let decoder = JSONDecoder()
+        return try decoder.decode(Bible.self, from: data)
+    } catch {
+        print("Error decoding Bible JSON: \(error)")
+        return nil
+    }
+}
+
 #Preview {
     ContentView()
 }
