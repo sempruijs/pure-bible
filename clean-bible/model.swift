@@ -30,7 +30,7 @@ struct Verse: Codable {
 }
 
 func loadBible() -> Bible? {
-    guard let url = Bundle.main.url(forResource: "svv", withExtension: "json") else {
+    guard let url = Bundle.main.url(forResource: "canisius1939", withExtension: "json") else {
         print("Bible JSON file not found")
         return nil
     }
