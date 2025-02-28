@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var settings = Settings(verseNumbers: false, fontSize: 12.0, fontName: "System")
     @State private var showSwitchView = false
     @State private var searchText = ""
+    @State private var presentedChapters: [ChapterView] = []
     
     let fontOptions = ["System", "Times New Roman", "Courier", "Arial", "Helvetica"]
 

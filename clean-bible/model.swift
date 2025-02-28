@@ -7,22 +7,22 @@
 
 import Foundation
 
-struct Bible: Codable {
+struct Bible: Codable, Hashable {
     let books: [Book]
 }
 
-struct Book: Codable {
+struct Book: Codable, Hashable {
     let name: String
     let chapters: [Chapter]
 }
 
-struct Chapter: Codable {
+struct Chapter: Codable, Hashable {
     let chapter: Int
     let name: String
     let verses: [Verse]
 }
 
-struct Verse: Codable {
+struct Verse: Codable, Hashable {
     let verse: Int
     let chapter: Int
     let name: String

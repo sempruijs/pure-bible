@@ -8,21 +8,38 @@
 import SwiftUI
 
 struct BibleView: View {
+    @State private var selectedBook: Book? // Holds the selected item
+    @State private var selectedChapter: Chapter? // Holds the selected item
+    let items = ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"]
     let bible: Bible
     let settings: Settings
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(bible.books, id: \.name) { book in
-                    NavigationLink(destination: BookView(book: book, settings: settings)) {
-                        Text(book.name)
-                    }
-                }
-            }
-            .navigationTitle("Bible")
-            .accessibilityLabel("books")
-        }
+          NavigationSplitView {
+              List(bible.books, id: \.self, selection: $selectedBook) { book in
+                  Text(book.name)
+              }
+              .navigationTitle("Books")
+              .accessibilityLabel("books")
+          } content: {
+              if let selectedBook {
+                  List(selectedBook.chapters, id: \.self, selection: $selectedChapter) { chapter in
+                      Text(chapter.name)
+                  }
+                  .navigationTitle("Chapters")
+                  .accessibilityLabel("Chapters")
+              } else {
+                  Text("Select a chapter")
+                      .navigationTitle("chapters")
+              }
+          } detail: {
+              if let selectedChapter {
+                  ChapterView(chapter: selectedChapter, settings: settings)
+              } else {
+                  Text("select a chapter")
+              }
+              
+          }
     }
 }
 
