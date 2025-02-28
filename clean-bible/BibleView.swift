@@ -10,7 +10,6 @@ import SwiftUI
 struct BibleView: View {
     @State private var selectedBook: Book? // Holds the selected item
     @State private var selectedChapter: Chapter? // Holds the selected item
-    let items = ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"]
     let bible: Bible
     let settings: Settings
     
