@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BibleView: View {
-    @State private var selectedBook: Book? // Holds the selected item
-    @State private var selectedChapter: Chapter? // Holds the selected item
+    @Binding var selectedBook: Book?
+    @Binding var selectedChapter: Chapter?
     let bible: Bible
     let settings: Settings
     

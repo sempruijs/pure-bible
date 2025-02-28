@@ -13,6 +13,9 @@ struct QuickSwitcherView: View {
     @Binding var searchText: String
     @FocusState private var isTextFieldFocused: Bool
     @State private var selectedIndex: Int = 0 // Track selected result index
+    
+    @Binding var selectedChapter: Chapter?
+    @Binding var selectedBook: Book?
 
     var filteredChapters: [Chapter] {
         bible.books.flatMap { $0.chapters }.filter {
@@ -29,13 +32,15 @@ struct QuickSwitcherView: View {
                 .focused($isTextFieldFocused)
                 .onAppear { isTextFieldFocused = true }
 
-            List(filteredChapters.indices, id: \.self, selection: $selectedIndex) { index in
+            List(filteredChapters, id: \.self, selection: $selectedIndex) { chapter in
                 Button(action: {
-                    openChapter(filteredChapters[index])
+//                    openChapter(filteredChapters[index])
+                    selectedChapter = chapter
+                    showSwitchView = false
                 }) {
-                    Text(filteredChapters[index].name)
+                    Text(chapter.name)
                         .padding()
-                        .background(selectedIndex == index ? Color.gray.opacity(0.2) : Color.clear)
+//                        .background(selectedIndex == index ? Color.gray.opacity(0.2) : Color.clear)
                         .cornerRadius(5)
                 }
             }

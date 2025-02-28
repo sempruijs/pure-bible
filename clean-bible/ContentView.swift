@@ -13,17 +13,20 @@ struct ContentView: View {
     @State private var searchText = ""
     @State private var presentedChapters: [ChapterView] = []
     
+    @State private var selectedBook: Book?
+    @State private var selectedChapter: Chapter?
+    
     let fontOptions = ["System", "Times New Roman", "Courier", "Arial", "Helvetica"]
 
     var body: some View {
         ZStack {
             if let bible = loadBible() {
                 if showSwitchView {
-                    QuickSwitcherView(bible: bible, showSwitchView: $showSwitchView, searchText: $searchText)
+                    QuickSwitcherView(bible: bible, showSwitchView: $showSwitchView, searchText: $searchText, selectedChapter: $selectedChapter, selectedBook: $selectedBook)
                         .frame(maxWidth: 400)
                         .zIndex(1)  // Ensure it shows on top of the main content
                 }
-                BibleView(bible: bible, settings: settings)
+                BibleView(selectedBook: $selectedBook, selectedChapter: $selectedChapter, bible: bible, settings: settings)
                     .toolbar {
                         ToolbarItemGroup {
                             // Toggle for Verse Numbers
