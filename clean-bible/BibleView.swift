@@ -24,7 +24,7 @@ struct BibleView: View {
           } content: {
               if let selectedBook {
                   List(selectedBook.chapters, id: \.self, selection: $selectedChapter) { chapter in
-                      Text(chapter.name)
+                      Text("\(chapter.chapter)")
                   }
                   .navigationTitle("Chapters")
                   .accessibilityLabel("Chapters")
