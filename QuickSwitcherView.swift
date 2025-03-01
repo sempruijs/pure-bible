@@ -4,7 +4,7 @@
 //
 //  Created by Sem Pruijs on 24/02/2025.
 //
-
+#if os(macOS)
 import SwiftUI
 import KBar
 
@@ -15,6 +15,7 @@ struct QuickSwitcherView: View {
     
     @Binding var selectedChapter: Chapter?
     @Binding var selectedBook: Book?
+    @Binding var selectedVerse: Int?
     
     var chapters: [Chapter] {
             bible.books.flatMap { $0.chapters }
@@ -26,6 +27,7 @@ struct QuickSwitcherView: View {
         for chapter in chapters {
             let item = KBar.Item(title: chapter.name) {
                 selectedChapter = chapter
+                selectedVerse = 1
             }
             
             items.append(item)
@@ -42,3 +44,4 @@ struct QuickSwitcherView: View {
 //#Preview {
 //    QuickSwitcherView()
 //}
+#endif

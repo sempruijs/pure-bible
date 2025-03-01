@@ -10,6 +10,10 @@ import SwiftUI
 struct ChapterView: View {
     let chapter: Chapter
     let settings: Settings
+    @Binding var selectedVerse: Int?
+    
+    @AccessibilityFocusState
+        private var focus: Int?
     
     var body: some View {
         ScrollView {
@@ -23,12 +27,18 @@ struct ChapterView: View {
                             : .custom(settings.fontName, size: settings.fontSize) // Use selected font
                         )
                         .textSelection(.enabled)
+                        .accessibilityFocused($focus, equals: verse.verse)
                 }
             }
             .padding()
         }
-        .navigationTitle("Chapter \(chapter.chapter)")
+        .navigationTitle("\(chapter.name)")
         .accessibilityLabel("\(chapter.name)")
+//        .onAppear {
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                            focus = selectedVerse
+//                        }
+//                    }
     }
 }
 

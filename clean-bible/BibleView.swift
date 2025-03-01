@@ -13,6 +13,8 @@ struct BibleView: View {
     let bible: Bible
     let settings: Settings
     
+    @Binding var selectedVerse: Int?
+    
     var body: some View {
           NavigationSplitView {
               List(bible.books, id: \.self, selection: $selectedBook) { book in
@@ -25,7 +27,7 @@ struct BibleView: View {
                   List(selectedBook.chapters, id: \.self, selection: $selectedChapter) { chapter in
                       Text("\(chapter.chapter)")
                   }
-                  .navigationTitle("Chapters")
+                  .navigationTitle("\(selectedBook.name)")
                   .accessibilityLabel("Chapters")
               } else {
                   Text("Select a chapter")
@@ -33,7 +35,7 @@ struct BibleView: View {
               }
           } detail: {
               if let selectedChapter {
-                  ChapterView(chapter: selectedChapter, settings: settings)
+                  ChapterView(chapter: selectedChapter, settings: settings, selectedVerse: $selectedVerse)
               } else {
                   Text("select a chapter")
               }
