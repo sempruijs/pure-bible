@@ -27,11 +27,11 @@ struct BibleView: View {
                           }
                       }
                       
-                      Section(header: Text("Apocrypha")) {
-                          ForEach(bibleData.apocryphaBooks, id: \.self) { book in
-                              Text(book.name)
-                          }
-                      }
+//                      Section(header: Text("Apocrypha")) {
+//                          ForEach(bibleData.apocryphaBooks, id: \.self) { book in
+//                              Text(book.name)
+//                          }
+//                      }
                       
                       Section(header: Text("New Testament")) {
                           ForEach(bibleData.newTestamentBooks, id: \.self) { book in

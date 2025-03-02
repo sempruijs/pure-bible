@@ -84,7 +84,7 @@ struct ContentView: View {
 }
 
 func loadBible() -> Bible? {
-    guard let url = Bundle.main.url(forResource: "svva", withExtension: "json") else {
+    guard let url = Bundle.main.url(forResource: "svv", withExtension: "json") else {
         print("Bible JSON file not found")
         return nil
     }
