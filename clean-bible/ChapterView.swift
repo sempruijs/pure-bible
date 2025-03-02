@@ -12,51 +12,52 @@ struct ChapterView: View {
     @Binding var settings: Settings
     @Binding var selectedVerse: Int?
     
-    @AccessibilityFocusState
-        private var focus: Int?
-    
+    @AccessibilityFocusState private var focus: Int?
+
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                ForEach(chapter.verses, id: \.verse) { verse in
-                    Text(showVerse(verse: verse, withNumber: settings.verseNumbers))
-                        .padding(.bottom, 2)
-                        .font(
-                            settings.fontName == "System"
-                            ? .system(.body)  // Use system font with Dynamic Type
-                            : .custom(settings.fontName, size: 17, relativeTo: .body) // Use custom font with Dynamic Type
-                        )
-                        .textSelection(.enabled)
-                        .accessibilityFocused($focus, equals: verse.verse)
+            ScrollView {
+                HStack {
+                    Spacer()
+                    VStack(alignment: .leading, spacing: 8) {  // Added spacing between verses
+                        ForEach(chapter.verses, id: \.verse) { verse in
+                            Text(showVerse(verse: verse, withNumber: settings.verseNumbers))
+                                .font(
+                                    settings.fontName == "System"
+                                    ? .system(.body, design: .serif)  // Serif for better readability
+                                    : .custom(settings.fontName, size: 17, relativeTo: .body)
+                                )
+                                .tracking(0.5)  // Slight character spacing for clarity
+                                .lineSpacing(6)  // Improves readability
+                                .multilineTextAlignment(.leading)  // Align text left
+                                .frame(maxWidth: 600, alignment: .leading)  // Limit width for readability
+                                .padding(.bottom, 6)
+                                .textSelection(.enabled)
+                                .accessibilityFocused($focus, equals: verse.verse)
+                        }
+                    }
+                    .padding()
+                    Spacer()
                 }
             }
-            .padding()
-        }
-        .navigationTitle("\(chapter.name)")
-        .accessibilityLabel("\(chapter.name)")
-        #if os(IOS)
-        .toolbar {
-                    // Add the button to the top-right of the toolbar
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            // Toggle visibility
-                            settings.verseNumbers.toggle()
-                        }) {
-                            Image(systemName: "number.circle")  // You can use any icon
-                                .imageScale(.small)  // Small icon
-                        }
-                        .accessibilityLabel(settings.verseNumbers ? "Hide verse numbers" : "Show verse numbers")
+            .navigationTitle("\(chapter.name)")
+            .accessibilityLabel("\(chapter.name)")
+            .dynamicTypeSize(.medium ... .xxLarge)  // Supports system-wide text scaling
+            
+#if os(iOS)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        settings.verseNumbers.toggle()  // Toggle verse number visibility
+                    }) {
+                        Image(systemName: "number.circle")
+                            .imageScale(.small)
                     }
+                    .accessibilityLabel(settings.verseNumbers ? "Hide verse numbers" : "Show verse numbers")
                 }
-            #endif
-//        .onAppear {
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-//                            focus = selectedVerse
-//                        }
-//                    }
+            }
+#endif
     }
 }
-
 func showVerse(verse: Verse, withNumber: Bool) -> String {
     if withNumber {
         return "\(verse.verse). \(verse.text)"
