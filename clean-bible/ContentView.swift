@@ -32,7 +32,7 @@ struct ContentView: View {
                         .zIndex(1)  // Ensure it shows on top of the main content
                 }
                 #endif
-            BibleView(selectedBook: $selectedBook, selectedChapter: $selectedChapter, settings: settings, selectedVerse: $selectedVerse, bibleData: bibleData)
+            BibleView(selectedBook: $selectedBook, selectedChapter: $selectedChapter, settings: $settings, selectedVerse: $selectedVerse, bibleData: bibleData)
                     .toolbar {
                         ToolbarItemGroup {
                             // Toggle for Verse Numbers

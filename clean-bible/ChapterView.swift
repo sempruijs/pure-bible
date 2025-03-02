@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChapterView: View {
     let chapter: Chapter
-    let settings: Settings
+    @Binding var settings: Settings
     @Binding var selectedVerse: Int?
     
     @AccessibilityFocusState
@@ -34,6 +34,21 @@ struct ChapterView: View {
         }
         .navigationTitle("\(chapter.name)")
         .accessibilityLabel("\(chapter.name)")
+        #if os(IOS)
+        .toolbar {
+                    // Add the button to the top-right of the toolbar
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            // Toggle visibility
+                            settings.verseNumbers.toggle()
+                        }) {
+                            Image(systemName: "number.circle")  // You can use any icon
+                                .imageScale(.small)  // Small icon
+                        }
+                        .accessibilityLabel(settings.verseNumbers ? "Hide verse numbers" : "Show verse numbers")
+                    }
+                }
+            #endif
 //        .onAppear {
 //                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
 //                            focus = selectedVerse

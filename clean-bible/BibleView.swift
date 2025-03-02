@@ -11,7 +11,7 @@ struct BibleView: View {
     @Binding var selectedBook: Book?
     @Binding var selectedChapter: Chapter?
 //    let bible: Bible
-    let settings: Settings
+    @Binding var settings: Settings
     
     @Binding var selectedVerse: Int?
     
@@ -54,7 +54,7 @@ struct BibleView: View {
               }
           } detail: {
               if let selectedChapter {
-                  ChapterView(chapter: selectedChapter, settings: settings, selectedVerse: $selectedVerse)
+                  ChapterView(chapter: selectedChapter, settings: $settings, selectedVerse: $selectedVerse)
               } else {
                   Text("select a chapter")
               }
