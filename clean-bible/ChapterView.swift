@@ -23,8 +23,8 @@ struct ChapterView: View {
                         .padding(.bottom, 2)
                         .font(
                             settings.fontName == "System"
-                            ? .system(size: settings.fontSize)  // Use system font
-                            : .custom(settings.fontName, size: settings.fontSize) // Use selected font
+                            ? .system(.body)  // Use system font with Dynamic Type
+                            : .custom(settings.fontName, size: 17, relativeTo: .body) // Use custom font with Dynamic Type
                         )
                         .textSelection(.enabled)
                         .accessibilityFocused($focus, equals: verse.verse)
