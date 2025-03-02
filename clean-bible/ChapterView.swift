@@ -36,6 +36,7 @@ struct ChapterView: View {
                         }
                     }
                     .padding()
+                    .padding(.bottom, 100) 
                     Spacer()
                 }
             }
