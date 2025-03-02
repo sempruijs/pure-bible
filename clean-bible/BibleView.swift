@@ -39,7 +39,7 @@ struct BibleView: View {
                           }
                       }
               }
-              .navigationTitle("Books")
+              .navigationTitle("Bible")
               .accessibilityLabel("books")
           } content: {
               if let selectedBook {
