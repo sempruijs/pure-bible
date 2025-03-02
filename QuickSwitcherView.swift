@@ -9,7 +9,7 @@ import SwiftUI
 import KBar
 
 struct QuickSwitcherView: View {
-    let bible: Bible
+    let bibleData: BibleData
     @Binding var showSwitchView: Bool
     @Binding var searchText: String
     
@@ -18,7 +18,7 @@ struct QuickSwitcherView: View {
     @Binding var selectedVerse: Int?
     
     var chapters: [Chapter] {
-            bible.books.flatMap { $0.chapters }
+        bibleData.bible.books.flatMap { $0.chapters }
         }
     
     var items: [KBar.Item] {

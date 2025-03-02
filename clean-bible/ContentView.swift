@@ -16,21 +16,23 @@ struct ContentView: View {
     @State private var selectedBook: Book?
     @State private var selectedChapter: Chapter?
     
-    @State private var selectedVerse: Int? = nil
+    @State private var selectedVerse: Int? = nil 
     
     let fontOptions = ["System", "Times New Roman", "Courier", "Arial", "Helvetica"]
+    
+    @StateObject private var bibleData = BibleData()
 
     var body: some View {
         ZStack {
-            if let bible = loadBible() {
+//            if let bible = loadBible() {
                 #if os(macOS)
                 if showSwitchView {
-                    QuickSwitcherView(bible: bible, showSwitchView: $showSwitchView, searchText: $searchText, selectedChapter: $selectedChapter, selectedBook: $selectedBook, selectedVerse: $selectedVerse)
+                    QuickSwitcherView(bibleData: bibleData, showSwitchView: $showSwitchView, searchText: $searchText, selectedChapter: $selectedChapter, selectedBook: $selectedBook, selectedVerse: $selectedVerse)
 //                        .frame(maxWidth: 400)
                         .zIndex(1)  // Ensure it shows on top of the main content
                 }
                 #endif
-                BibleView(selectedBook: $selectedBook, selectedChapter: $selectedChapter, bible: bible, settings: settings, selectedVerse: $selectedVerse)
+            BibleView(selectedBook: $selectedBook, selectedChapter: $selectedChapter, settings: settings, selectedVerse: $selectedVerse, bibleData: bibleData)
                     .toolbar {
                         ToolbarItemGroup {
                             // Toggle for Verse Numbers
@@ -74,9 +76,9 @@ struct ContentView: View {
                             .keyboardShortcut("k")
                         }
                     }
-            } else {
-                Text("Loading bible")
-            }
+//            } else {
+//                Text("Loading bible")
+//            }
         }
     }
 }

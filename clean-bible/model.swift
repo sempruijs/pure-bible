@@ -34,3 +34,33 @@ struct Settings {
     var fontSize: CGFloat
     var fontName: String
 }
+
+//struct BibleData {
+//    static let shared: Bible? = {
+//        return loadBible()
+//    }()
+//    
+//    static let oldTestamentBooks: [Book] = shared?.books.prefix(39).map { $0 } ?? []
+//    static let apocryphaBooks: [Book] = shared?.books.dropFirst(39).prefix(14).map { $0 } ?? []
+//    static let newTestamentBooks: [Book] = shared?.books.suffix(shared?.books.count ?? 0 - 53).map { $0 } ?? []
+//}
+
+class BibleData: ObservableObject {
+    @Published var bible: Bible
+    
+    init() {
+        self.bible = loadBible() ?? Bible(books: [])
+    }
+
+    var oldTestamentBooks: [Book] {
+        Array(bible.books.prefix(39))
+    }
+
+    var apocryphaBooks: [Book] {
+        Array(bible.books.dropFirst(39).prefix(14))
+    }
+
+    var newTestamentBooks: [Book] {
+        Array(bible.books.suffix(bible.books.count - 53))
+    }
+}

@@ -10,15 +10,34 @@ import SwiftUI
 struct BibleView: View {
     @Binding var selectedBook: Book?
     @Binding var selectedChapter: Chapter?
-    let bible: Bible
+//    let bible: Bible
     let settings: Settings
     
     @Binding var selectedVerse: Int?
     
+    let bibleData: BibleData
+    
     var body: some View {
           NavigationSplitView {
-              List(bible.books, id: \.self, selection: $selectedBook) { book in
-                  Text(book.name)
+              List(selection: $selectedBook) {
+//                  Text(book.name)
+                  Section(header: Text("Old Testament")) {
+                      ForEach(bibleData.oldTestamentBooks, id: \.self) { book in
+                              Text(book.name)
+                          }
+                      }
+                      
+                      Section(header: Text("Apocrypha")) {
+                          ForEach(bibleData.apocryphaBooks, id: \.self) { book in
+                              Text(book.name)
+                          }
+                      }
+                      
+                      Section(header: Text("New Testament")) {
+                          ForEach(bibleData.newTestamentBooks, id: \.self) { book in
+                              Text(book.name)
+                          }
+                      }
               }
               .navigationTitle("Books")
               .accessibilityLabel("books")
