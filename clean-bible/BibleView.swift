@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BibleView: View {
+    @State private var showSettings = false
     @Binding var selectedBook: Book?
     @Binding var selectedChapter: Chapter?
 //    let bible: Bible
@@ -40,6 +41,22 @@ struct BibleView: View {
               }
               .navigationTitle("Bible")
               .accessibilityLabel("books")
+#if os(iOS)
+              .toolbar {
+                 ToolbarItem {
+                     Button(action: {
+                         showSettings = true
+                     }) {
+                         Image(systemName: "gearshape")
+                             .imageScale(.large)  // Adjusts size
+                     }
+                     .accessibilityLabel("settings")
+                 }
+             }
+             .sheet(isPresented: $showSettings) {
+                 GeneralSettingsView()
+             }
+              #endif
           } content: {
               if let selectedBook {
                   List(selectedBook.chapters, id: \.self, selection: $selectedChapter) { chapter in

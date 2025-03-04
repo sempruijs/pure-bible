@@ -50,12 +50,12 @@ struct ChapterView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        settings.verseNumbers.toggle()  // Toggle verse number visibility
+                        showVerseNumbers.toggle()  // Toggle verse number visibility
                     }) {
                         Image(systemName: "number.circle")
                             .imageScale(.small)
                     }
-                    .accessibilityLabel(settings.verseNumbers ? "Hide verse numbers" : "Show verse numbers")
+                    .accessibilityLabel(showVerseNumbers ? "Hide verse numbers" : "Show verse numbers")
                 }
             }
 #endif
