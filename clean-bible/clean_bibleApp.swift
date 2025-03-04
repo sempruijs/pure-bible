@@ -13,5 +13,10 @@ struct clean_bibleApp: App {
         WindowGroup {
             ContentView()
         }
+        #if os(macOS)
+        Settings {
+            GeneralSettingsView()
+        }
+        #endif
     }
 }

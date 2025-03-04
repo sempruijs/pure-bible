@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var settings = Settings(verseNumbers: false, fontSize: 12.0, fontName: "System")
+    @AppStorage("showVerseNumbers") private var showVerseNumbers = true
+    @AppStorage("fontSize") private var fontSize: Double = 12.0
+    @AppStorage("fontName") private var fontName: String = "System"
+    
     @State private var showSwitchView = false
     @State private var searchText = ""
     @State private var presentedChapters: [ChapterView] = []
@@ -32,11 +35,11 @@ struct ContentView: View {
                         .zIndex(1)  // Ensure it shows on top of the main content
                 }
                 #endif
-            BibleView(selectedBook: $selectedBook, selectedChapter: $selectedChapter, settings: $settings, selectedVerse: $selectedVerse, bibleData: bibleData)
+            BibleView(selectedBook: $selectedBook, selectedChapter: $selectedChapter, selectedVerse: $selectedVerse, bibleData: bibleData)
                     .toolbar {
                         ToolbarItemGroup {
                             // Toggle for Verse Numbers
-                            Toggle(isOn: $settings.verseNumbers) {
+                            Toggle(isOn: $showVerseNumbers) {
                                 Image(systemName: "numbers")
                             }
                             .accessibilityLabel("Verse Numbers")
@@ -44,7 +47,7 @@ struct ContentView: View {
                             
                             // Decrease Font Size Button
                             Button(action: {
-                                settings.fontSize = max(settings.fontSize - 1, 8)
+                                fontSize = max(fontSize - 1, 8)
                             }) {
                                 Image(systemName: "minus")
                             }
@@ -53,7 +56,7 @@ struct ContentView: View {
                             
                             // Increase Font Size Button
                             Button(action: {
-                                settings.fontSize = min(settings.fontSize + 1, 40)
+                                fontSize = min(fontSize + 1, 40)
                             }) {
                                 Image(systemName: "plus")
                             }
@@ -61,7 +64,7 @@ struct ContentView: View {
                             .accessibilityLabel("Increase Font Size")
                             
                             // Popup Button for Font Selection
-                            Picker(selection: $settings.fontName, label: Image(systemName: "textformat")) {
+                            Picker(selection: $fontName, label: Image(systemName: "textformat")) {
                                 ForEach(fontOptions, id: \.self) { font in
                                     Text(font).tag(font)
                                 }

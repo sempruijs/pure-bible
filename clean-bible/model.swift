@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Bible: Codable, Hashable {
     let books: [Book]
@@ -27,12 +28,6 @@ struct Verse: Codable, Hashable {
     let chapter: Int
     let name: String
     let text: String
-}
-
-struct Settings {
-    var verseNumbers: Bool
-    var fontSize: CGFloat
-    var fontName: String
 }
 
 //struct BibleData {

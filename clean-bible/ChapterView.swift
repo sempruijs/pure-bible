@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ChapterView: View {
     let chapter: Chapter
-    @Binding var settings: Settings
+    @AppStorage("showVerseNumbers") private var showVerseNumbers = true
+    @AppStorage("fontSize") private var fontSize: Double = 12.0
+    @AppStorage("fontName") private var fontName: String = "System"
     @Binding var selectedVerse: Int?
     
     @AccessibilityFocusState private var focus: Int?
@@ -20,11 +22,11 @@ struct ChapterView: View {
                     Spacer()
                     VStack(alignment: .leading, spacing: 8) {  // Added spacing between verses
                         ForEach(chapter.verses, id: \.verse) { verse in
-                            Text(showVerse(verse: verse, withNumber: settings.verseNumbers))
+                            Text(showVerse(verse: verse, withNumber: showVerseNumbers))
                                 .font(
-                                    settings.fontName == "System"
+                                    fontName == "System"
                                     ? .system(.body, design: .serif)  // Serif for better readability
-                                    : .custom(settings.fontName, size: 17, relativeTo: .body)
+                                    : .custom(fontName, size: 17, relativeTo: .body)
                                 )
                                 .tracking(0.5)  // Slight character spacing for clarity
                                 .lineSpacing(6)  // Improves readability
