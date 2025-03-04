@@ -18,6 +18,10 @@ struct GeneralSettingsView: View {
 //            Slider(value: $fontSize, in: 9...96) {
 //                Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
 //            }
+                Link("Visit github repository", destination: URL(string: "https://github.com/sempruijs/clean-bible")!)
+                    .font(.headline)
+                    .foregroundColor(.blue)
+                    .padding()
         }
         .frame(minWidth: 600, minHeight: 300)
     }
