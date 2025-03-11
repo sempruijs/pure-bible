@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A22829772D6C839B00E55140 /* QuickSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22829762D6C839B00E55140 /* QuickSwitcherView.swift */; };
-		A22CABB62D726026007F6513 /* KBar in Frameworks */ = {isa = PBXBuildFile; platformFilters = (macos, xros, ); productRef = A22CABB52D726026007F6513 /* KBar */; };
 		A22CABBA2D760014007F6513 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22CABB92D760014007F6513 /* GeneralSettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,7 @@
 /* Begin PBXFileReference section */
 		A22829762D6C839B00E55140 /* QuickSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSwitcherView.swift; sourceTree = "<group>"; };
 		A22CABB92D760014007F6513 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
-		A2B2DB1C2D6A53E700A6C06D /* clean-bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "clean-bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B2DB1C2D6A53E700A6C06D /* Open Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Open Bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B2DB2D2D6A53E800A6C06D /* clean-bibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "clean-bibleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B2DB372D6A53E800A6C06D /* clean-bibleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "clean-bibleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -60,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A22CABB62D726026007F6513 /* KBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +94,7 @@
 		A2B2DB1D2D6A53E700A6C06D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A2B2DB1C2D6A53E700A6C06D /* clean-bible.app */,
+				A2B2DB1C2D6A53E700A6C06D /* Open Bible.app */,
 				A2B2DB2D2D6A53E800A6C06D /* clean-bibleTests.xctest */,
 				A2B2DB372D6A53E800A6C06D /* clean-bibleUITests.xctest */,
 			);
@@ -123,10 +121,9 @@
 			);
 			name = "clean-bible";
 			packageProductDependencies = (
-				A22CABB52D726026007F6513 /* KBar */,
 			);
 			productName = "clean-bible";
-			productReference = A2B2DB1C2D6A53E700A6C06D /* clean-bible.app */;
+			productReference = A2B2DB1C2D6A53E700A6C06D /* Open Bible.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A2B2DB2C2D6A53E800A6C06D /* clean-bibleTests */ = {
@@ -208,7 +205,6 @@
 			mainGroup = A2B2DB132D6A53E700A6C06D;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A22CABB42D726026007F6513 /* XCRemoteSwiftPackageReference "KBar" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A2B2DB1D2D6A53E700A6C06D /* Products */;
@@ -410,10 +406,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"clean-bible/Preview Content\"";
-				DEVELOPMENT_TEAM = 7987W92JF6;
+				DEVELOPMENT_TEAM = BSN9DSQ2C4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "clean bible";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -430,12 +428,14 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.pruijs.clean-bible";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Open Bible";
+				REGISTER_APP_GROUPS = NO;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -450,10 +450,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"clean-bible/Preview Content\"";
-				DEVELOPMENT_TEAM = 7987W92JF6;
+				DEVELOPMENT_TEAM = BSN9DSQ2C4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "clean bible";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -470,12 +472,14 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.pruijs.clean-bible";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Open Bible";
+				REGISTER_APP_GROUPS = NO;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -610,25 +614,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A22CABB42D726026007F6513 /* XCRemoteSwiftPackageReference "KBar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sempruijs/KBar";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A22CABB52D726026007F6513 /* KBar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A22CABB42D726026007F6513 /* XCRemoteSwiftPackageReference "KBar" */;
-			productName = KBar;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A2B2DB142D6A53E700A6C06D /* Project object */;
 }

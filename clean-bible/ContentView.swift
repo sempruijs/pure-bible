@@ -30,9 +30,9 @@ struct ContentView: View {
 //            if let bible = loadBible() {
                 #if os(macOS)
                 if showSwitchView {
-                    QuickSwitcherView(bibleData: bibleData, showSwitchView: $showSwitchView, searchText: $searchText, selectedChapter: $selectedChapter, selectedBook: $selectedBook, selectedVerse: $selectedVerse)
-//                        .frame(maxWidth: 400)
-                        .zIndex(1)  // Ensure it shows on top of the main content
+//                    QuickSwitcherView(bibleData: bibleData, showSwitchView: $showSwitchView, searchText: $searchText, selectedChapter: $selectedChapter, selectedBook: $selectedBook, selectedVerse: $selectedVerse)
+////                        .frame(maxWidth: 400)
+//                        .zIndex(1)  // Ensure it shows on top of the main content
                 }
                 #endif
             BibleView(selectedBook: $selectedBook, selectedChapter: $selectedChapter, selectedVerse: $selectedVerse, bibleData: bibleData)
