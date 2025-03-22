@@ -16,10 +16,18 @@ struct GeneralSettingsView: View {
         Form {
             Section("Preferences") {
                 Toggle("Show verse numbers", isOn: $showVerseNumbers)
-//          Uncomment if needed for future use:
-//            Slider(value: $fontSize, in: 9...96) {
-//                Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
-//            }
+                
+                Picker("Font Face", selection: $fontName) {
+                    Text("System").tag("System")
+                    Text("Times New Roman").tag("Times New Roman")
+                    Text("Georgia").tag("Georgia")
+                    Text("Arial").tag("Arial")
+                }
+                .pickerStyle(.menu)
+                
+                Slider(value: $fontSize, in: 9...96) {
+                    Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
+                }
             }
             
             Section {
