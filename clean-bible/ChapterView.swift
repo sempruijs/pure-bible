@@ -52,8 +52,9 @@ struct ChapterView: View {
                     Button(action: {
                         showVerseNumbers.toggle()  // Toggle verse number visibility
                     }) {
-                        Image(systemName: "number.circle")
+                        Image(systemName: showVerseNumbers ? "numbers.rectangle.fill" : "numbers.rectangle")
                             .imageScale(.small)
+//                            .foregroundColor(showVerseNumbers ? .accentColor : .primary)
                     }
                     .accessibilityLabel(showVerseNumbers ? "Hide verse numbers" : "Show verse numbers")
                 }
