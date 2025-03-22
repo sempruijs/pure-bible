@@ -31,9 +31,9 @@
 /* Begin PBXFileReference section */
 		A22829762D6C839B00E55140 /* QuickSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSwitcherView.swift; sourceTree = "<group>"; };
 		A22CABB92D760014007F6513 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
-		A2B2DB1C2D6A53E700A6C06D /* Open Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Open Bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B2DB2D2D6A53E800A6C06D /* clean-bibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "clean-bibleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B2DB372D6A53E800A6C06D /* clean-bibleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "clean-bibleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B2DB1C2D6A53E700A6C06D /* Pure Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pure Bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B2DB2D2D6A53E800A6C06D /* pure bibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pure bibleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B2DB372D6A53E800A6C06D /* pure bibleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pure bibleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -94,9 +94,9 @@
 		A2B2DB1D2D6A53E700A6C06D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A2B2DB1C2D6A53E700A6C06D /* Open Bible.app */,
-				A2B2DB2D2D6A53E800A6C06D /* clean-bibleTests.xctest */,
-				A2B2DB372D6A53E800A6C06D /* clean-bibleUITests.xctest */,
+				A2B2DB1C2D6A53E700A6C06D /* Pure Bible.app */,
+				A2B2DB2D2D6A53E800A6C06D /* pure bibleTests.xctest */,
+				A2B2DB372D6A53E800A6C06D /* pure bibleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,9 +104,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A2B2DB1B2D6A53E700A6C06D /* clean-bible */ = {
+		A2B2DB1B2D6A53E700A6C06D /* pure bible */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A2B2DB412D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "clean-bible" */;
+			buildConfigurationList = A2B2DB412D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "pure bible" */;
 			buildPhases = (
 				A2B2DB182D6A53E700A6C06D /* Sources */,
 				A2B2DB192D6A53E700A6C06D /* Frameworks */,
@@ -119,16 +119,16 @@
 			fileSystemSynchronizedGroups = (
 				A2B2DB1E2D6A53E700A6C06D /* clean-bible */,
 			);
-			name = "clean-bible";
+			name = "pure bible";
 			packageProductDependencies = (
 			);
 			productName = "clean-bible";
-			productReference = A2B2DB1C2D6A53E700A6C06D /* Open Bible.app */;
+			productReference = A2B2DB1C2D6A53E700A6C06D /* Pure Bible.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A2B2DB2C2D6A53E800A6C06D /* clean-bibleTests */ = {
+		A2B2DB2C2D6A53E800A6C06D /* pure bibleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A2B2DB442D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "clean-bibleTests" */;
+			buildConfigurationList = A2B2DB442D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "pure bibleTests" */;
 			buildPhases = (
 				A2B2DB292D6A53E800A6C06D /* Sources */,
 				A2B2DB2A2D6A53E800A6C06D /* Frameworks */,
@@ -142,16 +142,16 @@
 			fileSystemSynchronizedGroups = (
 				A2B2DB302D6A53E800A6C06D /* clean-bibleTests */,
 			);
-			name = "clean-bibleTests";
+			name = "pure bibleTests";
 			packageProductDependencies = (
 			);
 			productName = "clean-bibleTests";
-			productReference = A2B2DB2D2D6A53E800A6C06D /* clean-bibleTests.xctest */;
+			productReference = A2B2DB2D2D6A53E800A6C06D /* pure bibleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A2B2DB362D6A53E800A6C06D /* clean-bibleUITests */ = {
+		A2B2DB362D6A53E800A6C06D /* pure bibleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A2B2DB472D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "clean-bibleUITests" */;
+			buildConfigurationList = A2B2DB472D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "pure bibleUITests" */;
 			buildPhases = (
 				A2B2DB332D6A53E800A6C06D /* Sources */,
 				A2B2DB342D6A53E800A6C06D /* Frameworks */,
@@ -165,11 +165,11 @@
 			fileSystemSynchronizedGroups = (
 				A2B2DB3A2D6A53E800A6C06D /* clean-bibleUITests */,
 			);
-			name = "clean-bibleUITests";
+			name = "pure bibleUITests";
 			packageProductDependencies = (
 			);
 			productName = "clean-bibleUITests";
-			productReference = A2B2DB372D6A53E800A6C06D /* clean-bibleUITests.xctest */;
+			productReference = A2B2DB372D6A53E800A6C06D /* pure bibleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -195,7 +195,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A2B2DB172D6A53E700A6C06D /* Build configuration list for PBXProject "clean-bible" */;
+			buildConfigurationList = A2B2DB172D6A53E700A6C06D /* Build configuration list for PBXProject "pure bible" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -211,9 +211,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A2B2DB1B2D6A53E700A6C06D /* clean-bible */,
-				A2B2DB2C2D6A53E800A6C06D /* clean-bibleTests */,
-				A2B2DB362D6A53E800A6C06D /* clean-bibleUITests */,
+				A2B2DB1B2D6A53E700A6C06D /* pure bible */,
+				A2B2DB2C2D6A53E800A6C06D /* pure bibleTests */,
+				A2B2DB362D6A53E800A6C06D /* pure bibleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -271,12 +271,12 @@
 /* Begin PBXTargetDependency section */
 		A2B2DB2F2D6A53E800A6C06D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A2B2DB1B2D6A53E700A6C06D /* clean-bible */;
+			target = A2B2DB1B2D6A53E700A6C06D /* pure bible */;
 			targetProxy = A2B2DB2E2D6A53E800A6C06D /* PBXContainerItemProxy */;
 		};
 		A2B2DB392D6A53E800A6C06D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A2B2DB1B2D6A53E700A6C06D /* clean-bible */;
+			target = A2B2DB1B2D6A53E700A6C06D /* pure bible */;
 			targetProxy = A2B2DB382D6A53E800A6C06D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -428,7 +428,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.pruijs.clean-bible";
-				PRODUCT_NAME = "Open Bible";
+				PRODUCT_NAME = "Pure Bible";
 				REGISTER_APP_GROUPS = NO;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -472,7 +472,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.pruijs.clean-bible";
-				PRODUCT_NAME = "Open Bible";
+				PRODUCT_NAME = "Pure Bible";
 				REGISTER_APP_GROUPS = NO;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -502,7 +502,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clean-bible.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/clean-bible";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pure bible.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/pure bible";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
@@ -525,7 +525,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/clean-bible.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/clean-bible";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pure bible.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/pure bible";
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -577,7 +577,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A2B2DB172D6A53E700A6C06D /* Build configuration list for PBXProject "clean-bible" */ = {
+		A2B2DB172D6A53E700A6C06D /* Build configuration list for PBXProject "pure bible" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2B2DB3F2D6A53E800A6C06D /* Debug */,
@@ -586,7 +586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A2B2DB412D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "clean-bible" */ = {
+		A2B2DB412D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "pure bible" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2B2DB422D6A53E800A6C06D /* Debug */,
@@ -595,7 +595,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A2B2DB442D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "clean-bibleTests" */ = {
+		A2B2DB442D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "pure bibleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2B2DB452D6A53E800A6C06D /* Debug */,
@@ -604,7 +604,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A2B2DB472D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "clean-bibleUITests" */ = {
+		A2B2DB472D6A53E800A6C06D /* Build configuration list for PBXNativeTarget "pure bibleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2B2DB482D6A53E800A6C06D /* Debug */,
