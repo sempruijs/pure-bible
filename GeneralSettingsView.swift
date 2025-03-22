@@ -14,15 +14,43 @@ struct GeneralSettingsView: View {
 
     var body: some View {
         Form {
-            Toggle("Show verse numbers", isOn: $showVerseNumbers)
+            Section("Preferences") {
+                Toggle("Show verse numbers", isOn: $showVerseNumbers)
+//          Uncomment if needed for future use:
 //            Slider(value: $fontSize, in: 9...96) {
 //                Text("Font Size (\(fontSize, specifier: "%.0f") pts)")
 //            }
-                Link("Visit github repository", destination: URL(string: "https://github.com/sempruijs/pure-bible")!)
-                    .font(.headline)
-                    .foregroundColor(.blue)
-                    .padding()
+            }
+            
+            Section {
+                Link(destination: URL(string: "https://github.com/sempruijs/pure-bible")!) {
+                    Label("Visit GitHub Repository", systemImage: "link")
+                        #if os(iOS)
+                        .font(.body)
+                        #endif
+                }
+            }
+            
+            Section {
+                Text("Thank you for using Pure Bible ❤️\nVersion \(Bundle.main.appVersion)")
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 8)
+                    .foregroundColor(.secondary)
+            }
         }
-        .frame(minWidth: 600, minHeight: 300)
+        #if os(macOS)
+        .formStyle(.grouped)  // Better macOS styling
+        .frame(minWidth: 450, minHeight: 400)
+        #else
+        .navigationTitle("Settings")
+        #endif
+    }
+}
+
+// Add this extension outside the struct for version info
+extension Bundle {
+    var appVersion: String {
+        (infoDictionary?["CFBundleShortVersionString"] as? String) ?? "1.0"
     }
 }
